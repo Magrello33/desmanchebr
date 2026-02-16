@@ -6,7 +6,14 @@
 
 <title>Auto Peças e Mecânica BR</title>
 
-<!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17854148234"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-17854148234'); </script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17854148234"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'AW-17854148234');
+</script>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 
@@ -196,7 +203,7 @@ font-size:22px;
 <div class="counter">
 <h2 id="contador">+0 Peças</h2>
 <div class="badge">Garantia em todas as peças</div>
-<a href="https://wa.me/553798416044" class="cta">
+<a href="https://wa.me/553798416044" class="cta" id="btnWhatsapp">
 Solicitar peça no WhatsApp
 </a>
 </div>
@@ -246,7 +253,7 @@ Atendimento top, recomendo!
 <h2>Orçamento</h2>
 
 <div class="form-container">
-<form onsubmit="enviar(event)">
+<form onsubmit="enviar(event)" id="formWhatsapp">
 <input type="text" id="nome" placeholder="Nome" required>
 <input type="tel" id="telefone" placeholder="Telefone" required>
 <textarea id="mensagem" placeholder="Qual peça você procura?"></textarea>
@@ -265,12 +272,11 @@ Atendimento top, recomendo!
 </p>
 </footer>
 
-<a href="https://wa.me/553798416044" class="whatsapp">📞</a>
+<a href="https://wa.me/553798416044" class="whatsapp" id="btnFixWhatsapp">📞</a>
 
 <script>
 
 /* ⚡ contador animado */
-
 let alvo=10000;
 let atual=0;
 let el=document.getElementById("contador");
@@ -285,7 +291,6 @@ clearInterval(anim);
 },40);
 
 /* carrossel */
-
 let index=0;
 const slides=document.getElementById("slides");
 const total=slides.children.length;
@@ -295,8 +300,7 @@ index=(index+1)%total;
 slides.style.transform=`translateX(-${index*100}%)`;
 },3500);
 
-/* formulário */
-
+/* formulário + WhatsApp + conversão Google Ads */
 function enviar(e){
 e.preventDefault();
 let nome=document.getElementById("nome").value;
@@ -304,9 +308,18 @@ let tel=document.getElementById("telefone").value;
 let msg=document.getElementById("mensagem").value;
 
 let texto=`Olá! ${nome}\nTelefone: ${tel}\nPeça: ${msg}`;
+
+/* 🚀 dispara a conversão no Google Ads */
+gtag('event', 'conversion', {'send_to': 'AW-17854148234/abcDEF123'});
+
+/* abre o WhatsApp */
 window.open(`https://wa.me/553798416044?text=${encodeURIComponent(texto)}`);
 }
 
+/* botão fixo do WhatsApp também dispara conversão */
+document.getElementById("btnFixWhatsapp").addEventListener("click", function(){
+gtag('event', 'conversion', {'send_to': 'AW-17854148234/abcDEF123'});
+});
 </script>
 
 </body>
