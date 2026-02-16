@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Auto Peças e Mecânica BR</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Orbitron',sans-serif;}
+body{background:#0b0b0f;color:white;}
+
+.topbar{
+position:fixed;
+top:0;width:100%;
+background:black;
+padding:10px 5%;
+display:flex;
+align-items:center;
+z-index:999;
+}
+
+.logo-area{display:flex;align-items:center;gap:15px;}
+.logo{height:50px;}
+.legal{color:#25d366;font-size:14px;font-weight:bold;}
+
+.hero{
+margin-top:80px;
+height:55vh;
+background:url("banner.png") center/contain no-repeat;
+background-color:#000;
+filter:brightness(1.1);
+}
+
+/* ⚡ CONTADOR */
+
+.counter{
+text-align:center;
+padding:50px 8%;
+background:#111;
+}
+
+.counter h2{
+color:#ffae00;
+font-size:2.5rem;
+}
+
+/* SELO */
+
+.badge{
+display:inline-block;
+margin-top:15px;
+padding:10px 18px;
+background:#25d366;
+border-radius:30px;
+font-size:14px;
+}
+
+/* BOTÃO CTA */
+
+.cta{
+display:block;
+margin:25px auto;
+max-width:320px;
+text-align:center;
+background:#ff0000;
+padding:14px;
+border-radius:8px;
+color:white;
+text-decoration:none;
+font-weight:bold;
+}
+
+section{padding:70px 8%;}
+h2{text-align:center;margin-bottom:40px;color:#ffae00;}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
+background:#111;
+padding:25px;
+border-radius:15px;
+border:1px solid #222;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+box-shadow:0 0 15px #ff0000;
+}
+
+/* DEPOIMENTOS */
+
+.testimonials{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.testimonial{
+background:#111;
+padding:25px;
+border-radius:15px;
+border-left:4px solid #ffae00;
+}
+
+.stars{color:#ffae00;margin-bottom:10px;}
+.name{color:#888;margin-top:10px;font-size:14px;}
+
+/* CARROSSEL */
+
+.carousel{overflow:hidden;max-width:1000px;margin:auto;border-radius:20px;}
+.slides{display:flex;transition:transform .6s;}
+.slides img{width:100%;height:380px;object-fit:cover;flex-shrink:0;}
+
+.form-container{
+max-width:600px;
+margin:auto;
+background:#111;
+padding:30px;
+border-radius:15px;
+}
+
+input,textarea{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:none;
+border-radius:8px;
+}
+
+button{
+background:#ff0000;
+color:white;
+padding:12px;
+border:none;
+width:100%;
+cursor:pointer;
+border-radius:8px;
+}
+
+footer{
+background:black;
+text-align:center;
+padding:30px;
+color:#888;
+}
+
+footer a{
+color:#ffae00;
+text-decoration:none;
+margin:0 8px;
+}
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25d366;
+color:white;
+padding:18px;
+border-radius:50%;
+text-decoration:none;
+font-size:22px;
+}
+
+@media(max-width:768px){
+.hero{height:38vh;background-size:contain;}
+.slides img{height:240px;}
+.logo{height:40px;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+<div class="logo-area">
+<img src="logo.png" class="logo">
+<span class="legal">✔ Desmanche Legalizado</span>
+</div>
+</div>
+
+<div class="hero"></div>
+
+<!-- ⚡ CONTADOR -->
+
+<div class="counter">
+<h2 id="contador">+0 Peças</h2>
+<div class="badge">Garantia em todas as peças</div>
+<a href="https://wa.me/553798416044" class="cta">
+Solicitar peça no WhatsApp
+</a>
+</div>
+
+<section>
+<h2>Nossos Serviços</h2>
+<div class="grid">
+<div class="card">Venda de Peças com garantia</div>
+<div class="card">Desmanche Legalizado</div>
+<div class="card">Atendimento Rápido</div>
+<div class="card">Envio Nacional</div>
+</div>
+</section>
+
+<section>
+<h2>Galeria</h2>
+<div class="carousel">
+<div class="slides" id="slides">
+<img src="patio.png" loading="lazy">
+<img src="sucata2.png" loading="lazy">
+<img src="arranque.png" loading="lazy">
+<img src="sucata1.png" loading="lazy">
+</div>
+</div>
+</section>
+
+<section>
+<h2>Depoimentos</h2>
+<div class="testimonials">
+
+<div class="testimonial">
+<div class="stars">★★★★★</div>
+Peça perfeita e entrega rápida.
+<div class="name">Carlos Mendes</div>
+</div>
+
+<div class="testimonial">
+<div class="stars">★★★★★</div>
+Atendimento top, recomendo!
+<div class="name">Fernanda Souza</div>
+</div>
+
+</div>
+</section>
+
+<section>
+<h2>Orçamento</h2>
+
+<div class="form-container">
+<form onsubmit="enviar(event)">
+<input type="text" id="nome" placeholder="Nome" required>
+<input type="tel" id="telefone" placeholder="Telefone" required>
+<textarea id="mensagem" placeholder="Qual peça você procura?"></textarea>
+<button type="submit">Enviar no WhatsApp</button>
+</form>
+</div>
+
+</section>
+
+<footer>
+<p>© 2026 Auto Peças e Mecânica BR</p>
+<p>
+<a href="politica.html">Política</a> |
+<a href="sobre.html">Sobre</a> |
+<a href="cnpj.html">CNPJ</a>
+</p>
+</footer>
+
+<a href="https://wa.me/553798416044" class="whatsapp">📞</a>
+
+<script>
+
+/* ⚡ contador animado */
+
+let alvo=10000;
+let atual=0;
+let el=document.getElementById("contador");
+
+let anim=setInterval(()=>{
+atual+=250;
+el.textContent=`+${atual.toLocaleString()} Peças`;
+if(atual>=alvo){
+el.textContent="+10.000 Peças";
+clearInterval(anim);
+}
+},40);
+
+/* carrossel */
+
+let index=0;
+const slides=document.getElementById("slides");
+const total=slides.children.length;
+
+setInterval(()=>{
+index=(index+1)%total;
+slides.style.transform=`translateX(-${index*100}%)`;
+},3500);
+
+/* formulário */
+
+function enviar(e){
+e.preventDefault();
+let nome=document.getElementById("nome").value;
+let tel=document.getElementById("telefone").value;
+let msg=document.getElementById("mensagem").value;
+
+let texto=`Olá! ${nome}\nTelefone: ${tel}\nPeça: ${msg}`;
+window.open(`https://wa.me/553798416044?text=${encodeURIComponent(texto)}`);
+}
+
+</script>
+
+</body>
+</html>
