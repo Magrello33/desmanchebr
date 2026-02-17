@@ -43,8 +43,6 @@ background-color:#000;
 filter:brightness(1.1);
 }
 
-/* ⚡ CONTADOR */
-
 .counter{
 text-align:center;
 padding:50px 8%;
@@ -56,8 +54,6 @@ color:#ffae00;
 font-size:2.5rem;
 }
 
-/* SELO */
-
 .badge{
 display:inline-block;
 margin-top:15px;
@@ -66,8 +62,6 @@ background:#25d366;
 border-radius:30px;
 font-size:14px;
 }
-
-/* BOTÃO CTA */
 
 .cta{
 display:block;
@@ -104,8 +98,6 @@ transform:translateY(-6px);
 box-shadow:0 0 15px #ff0000;
 }
 
-/* DEPOIMENTOS */
-
 .testimonials{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -121,8 +113,6 @@ border-left:4px solid #ffae00;
 
 .stars{color:#ffae00;margin-bottom:10px;}
 .name{color:#888;margin-top:10px;font-size:14px;}
-
-/* CARROSSEL */
 
 .carousel{overflow:hidden;max-width:1000px;margin:auto;border-radius:20px;}
 .slides{display:flex;transition:transform .6s;}
@@ -197,8 +187,6 @@ font-size:22px;
 </div>
 
 <div class="hero"></div>
-
-<!-- ⚡ CONTADOR -->
 
 <div class="counter">
 <h2 id="contador">+0 Peças</h2>
@@ -276,7 +264,7 @@ Atendimento top, recomendo!
 
 <script>
 
-/* ⚡ contador animado */
+/* contador animado */
 let alvo=10000;
 let atual=0;
 let el=document.getElementById("contador");
@@ -300,25 +288,34 @@ index=(index+1)%total;
 slides.style.transform=`translateX(-${index*100}%)`;
 },3500);
 
-/* formulário + WhatsApp + conversão Google Ads */
+/* formulário + WhatsApp + conversão */
 function enviar(e){
 e.preventDefault();
+
 let nome=document.getElementById("nome").value;
 let tel=document.getElementById("telefone").value;
 let msg=document.getElementById("mensagem").value;
 
 let texto=`Olá! ${nome}\nTelefone: ${tel}\nPeça: ${msg}`;
 
-/* 🚀 dispara a conversão no Google Ads */
-gtag('event', 'conversion', {'send_to': 'AW-17854148234/abcDEF123'});
-
-/* abre o WhatsApp */
-window.open(`https://wa.me/553798416044?text=${encodeURIComponent(texto)}`);
+gtag('event', 'conversion', {
+  'send_to': 'AW-17854148234/-Fi0CM-T7vkbEIrdwsFC',
+  'event_callback': function() {
+    window.open(`https://wa.me/553798416044?text=${encodeURIComponent(texto)}`);
+  }
+});
 }
 
-/* botão fixo do WhatsApp também dispara conversão */
-document.getElementById("btnFixWhatsapp").addEventListener("click", function(){
-gtag('event', 'conversion', {'send_to': 'AW-17854148234/abcDEF123'});
+/* botão fixo WhatsApp */
+document.getElementById("btnFixWhatsapp").addEventListener("click", function(e){
+e.preventDefault();
+
+gtag('event', 'conversion', {
+  'send_to': 'AW-17854148234/-Fi0CM-T7vkbEIrdwsFC',
+  'event_callback': function() {
+    window.open("https://wa.me/553798416044");
+  }
+});
 });
 </script>
 
