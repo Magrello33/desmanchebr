@@ -301,7 +301,7 @@ let texto=`Olá! ${nome}\nTelefone: ${tel}\nPeça: ${msg}`;
 gtag('event', 'conversion', {
   'send_to': 'AW-17854148234/-Fi0CM-T7vkbEIrdwsFC',
   'event_callback': function() {
-    window.open(`https://wa.me/553798416044?text=${encodeURIComponent(texto)}`);
+    window.location.href=`https://wa.me/553798416044?text=${encodeURIComponent(texto)}`;
   }
 });
 }
@@ -313,7 +313,7 @@ e.preventDefault();
 gtag('event', 'conversion', {
   'send_to': 'AW-17854148234/-Fi0CM-T7vkbEIrdwsFC',
   'event_callback': function() {
-    window.open("https://wa.me/553798416044");
+    window.location.href="https://wa.me/553798416044";
   }
 });
 });
