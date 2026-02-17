@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Obrigado pelo contato</title>
+
+<!-- Google tag -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17854148234"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'AW-17854148234');
+
+/* dispara conversão ao carregar */
+gtag('event', 'conversion', {
+  'send_to': 'AW-17854148234/-Fi0CM-T7vkbEIrdwsFC'
+});
+</script>
+
+<style>
+body{
+background:#0b0b0f;
+color:white;
+font-family:Arial;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+text-align:center;
+padding:20px;
+}
+
+.container{
+background:#111;
+padding:40px;
+border-radius:15px;
+max-width:500px;
+}
+
+h1{color:#25d366;}
+
+a{
+display:block;
+margin-top:15px;
+padding:12px;
+border-radius:8px;
+text-decoration:none;
+color:white;
+font-weight:bold;
+}
+
+.whatsapp{background:#25d366;}
+.voltar{background:#ff0000;}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>Obrigado pelo contato!</h1>
+<p>Recebemos seu pedido. Clique abaixo para falar direto no WhatsApp:</p>
+
+<a id="whatsBtn" class="whatsapp" href="#">
+Falar no WhatsApp
+</a>
+
+<a href="index.html" class="voltar">
+Voltar ao site
+</a>
+</div>
+
+<script>
+/* pega dados da URL */
+const params = new URLSearchParams(window.location.search);
+const dados = params.get("dados") || "";
+
+document.getElementById("whatsBtn").href =
+`https://wa.me/553798416044?text=${dados}`;
+</script>
+
+</body>
+</html>
