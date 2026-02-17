@@ -191,7 +191,7 @@ font-size:22px;
 <div class="counter">
 <h2 id="contador">+0 Peças</h2>
 <div class="badge">Garantia em todas as peças</div>
-<a href="https://wa.me/553798416044" class="cta" id="btnWhatsapp">
+<a href="https://wa.me/553798416044" class="cta">
 Solicitar peça no WhatsApp
 </a>
 </div>
@@ -241,11 +241,16 @@ Atendimento top, recomendo!
 <h2>Orçamento</h2>
 
 <div class="form-container">
-<form onsubmit="enviar(event)" id="formWhatsapp">
+<form onsubmit="enviar(event)">
+
 <input type="text" id="nome" placeholder="Nome" required>
 <input type="tel" id="telefone" placeholder="Telefone" required>
-<textarea id="mensagem" placeholder="Qual peça você procura?"></textarea>
-<button type="submit">Enviar no WhatsApp</button>
+<input type="text" id="endereco" placeholder="Endereço" required>
+<input type="text" id="peca" placeholder="Peça desejada" required>
+<textarea id="mensagem" placeholder="Observações"></textarea>
+
+<button type="submit">Enviar</button>
+
 </form>
 </div>
 
@@ -260,11 +265,11 @@ Atendimento top, recomendo!
 </p>
 </footer>
 
-<a href="https://wa.me/553798416044" class="whatsapp" id="btnFixWhatsapp">📞</a>
+<a href="https://wa.me/553798416044" class="whatsapp">📞</a>
 
 <script>
 
-/* contador animado */
+/* contador */
 let alvo=10000;
 let atual=0;
 let el=document.getElementById("contador");
@@ -288,35 +293,27 @@ index=(index+1)%total;
 slides.style.transform=`translateX(-${index*100}%)`;
 },3500);
 
-/* formulário + WhatsApp + conversão */
+/* redireciona para obrigado.html */
 function enviar(e){
 e.preventDefault();
 
 let nome=document.getElementById("nome").value;
 let tel=document.getElementById("telefone").value;
+let endereco=document.getElementById("endereco").value;
+let peca=document.getElementById("peca").value;
 let msg=document.getElementById("mensagem").value;
 
-let texto=`Olá! ${nome}\nTelefone: ${tel}\nPeça: ${msg}`;
+let dados = encodeURIComponent(
+`Nome: ${nome}
+Telefone: ${tel}
+Endereço: ${endereco}
+Peça: ${peca}
+Obs: ${msg}`
+);
 
-gtag('event', 'conversion', {
-  'send_to': 'AW-17854148234/-Fi0CM-T7vkbEIrdwsFC',
-  'event_callback': function() {
-    window.location.href=`https://wa.me/553798416044?text=${encodeURIComponent(texto)}`;
-  }
-});
+window.location.href=`obrigado.html?dados=${dados}`;
 }
 
-/* botão fixo WhatsApp */
-document.getElementById("btnFixWhatsapp").addEventListener("click", function(e){
-e.preventDefault();
-
-gtag('event', 'conversion', {
-  'send_to': 'AW-17854148234/-Fi0CM-T7vkbEIrdwsFC',
-  'event_callback': function() {
-    window.location.href="https://wa.me/553798416044";
-  }
-});
-});
 </script>
 
 </body>
