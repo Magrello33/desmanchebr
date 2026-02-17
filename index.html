@@ -6,7 +6,7 @@
 
 <title>Auto Peças e Mecânica BR</title>
 
-<!-- Google tag (gtag.js) -->
+<!-- Google tag -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17854148234"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -40,7 +40,6 @@ margin-top:80px;
 height:55vh;
 background:url("banner.png") center/contain no-repeat;
 background-color:#000;
-filter:brightness(1.1);
 }
 
 .counter{
@@ -90,12 +89,6 @@ background:#111;
 padding:25px;
 border-radius:15px;
 border:1px solid #222;
-transition:0.3s;
-}
-
-.card:hover{
-transform:translateY(-6px);
-box-shadow:0 0 15px #ff0000;
 }
 
 .testimonials{
@@ -113,10 +106,6 @@ border-left:4px solid #ffae00;
 
 .stars{color:#ffae00;margin-bottom:10px;}
 .name{color:#888;margin-top:10px;font-size:14px;}
-
-.carousel{overflow:hidden;max-width:1000px;margin:auto;border-radius:20px;}
-.slides{display:flex;transition:transform .6s;}
-.slides img{width:100%;height:380px;object-fit:cover;flex-shrink:0;}
 
 .form-container{
 max-width:600px;
@@ -171,7 +160,6 @@ font-size:22px;
 
 @media(max-width:768px){
 .hero{height:38vh;background-size:contain;}
-.slides img{height:240px;}
 .logo{height:40px;}
 }
 </style>
@@ -207,18 +195,6 @@ Solicitar peça no WhatsApp
 </section>
 
 <section>
-<h2>Galeria</h2>
-<div class="carousel">
-<div class="slides" id="slides">
-<img src="patio.png" loading="lazy">
-<img src="sucata2.png" loading="lazy">
-<img src="arranque.png" loading="lazy">
-<img src="sucata1.png" loading="lazy">
-</div>
-</div>
-</section>
-
-<section>
 <h2>Depoimentos</h2>
 <div class="testimonials">
 
@@ -234,6 +210,18 @@ Atendimento top, recomendo!
 <div class="name">Fernanda Souza</div>
 </div>
 
+<div class="testimonial">
+<div class="stars">★★★★★</div>
+Chegou tudo certinho, excelente qualidade.
+<div class="name">Marcos Oliveira</div>
+</div>
+
+<div class="testimonial">
+<div class="stars">★★★★★</div>
+Preço justo e atendimento rápido.
+<div class="name">Juliana Costa</div>
+</div>
+
 </div>
 </section>
 
@@ -241,19 +229,25 @@ Atendimento top, recomendo!
 <h2>Orçamento</h2>
 
 <div class="form-container">
-<form onsubmit="enviar(event)">
 
-<input type="text" id="nome" placeholder="Nome" required>
-<input type="tel" id="telefone" placeholder="Telefone" required>
-<input type="text" id="endereco" placeholder="Endereço" required>
-<input type="text" id="peca" placeholder="Peça desejada" required>
-<textarea id="mensagem" placeholder="Observações"></textarea>
+<form action="mailto:desmanchemecanicabr@gmail.com"
+method="post"
+enctype="text/plain"
+onsubmit="redirecionar()">
 
-<button type="submit">Enviar</button>
+<input type="text" name="Nome" placeholder="Nome" required>
+
+<input type="tel" name="Telefone" placeholder="Telefone" required>
+
+<input type="text" name="Endereço" placeholder="Endereço" required>
+
+<textarea name="Peça" placeholder="Qual peça você procura?" required></textarea>
+
+<button type="submit">Enviar Orçamento</button>
 
 </form>
-</div>
 
+</div>
 </section>
 
 <footer>
@@ -283,35 +277,11 @@ clearInterval(anim);
 }
 },40);
 
-/* carrossel */
-let index=0;
-const slides=document.getElementById("slides");
-const total=slides.children.length;
-
-setInterval(()=>{
-index=(index+1)%total;
-slides.style.transform=`translateX(-${index*100}%)`;
-},3500);
-
-/* redireciona para obrigado.html */
-function enviar(e){
-e.preventDefault();
-
-let nome=document.getElementById("nome").value;
-let tel=document.getElementById("telefone").value;
-let endereco=document.getElementById("endereco").value;
-let peca=document.getElementById("peca").value;
-let msg=document.getElementById("mensagem").value;
-
-let dados = encodeURIComponent(
-`Nome: ${nome}
-Telefone: ${tel}
-Endereço: ${endereco}
-Peça: ${peca}
-Obs: ${msg}`
-);
-
-window.location.href=`obrigado.html?dados=${dados}`;
+/* redirecionamento */
+function redirecionar(){
+setTimeout(()=>{
+window.location.href="obrigado.html";
+},500);
 }
 
 </script>
