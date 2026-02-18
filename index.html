@@ -260,13 +260,19 @@ Muito rápido e seguro.
 <h2>Orçamento</h2>
 
 <div class="form-container">
-<!-- Formulário FormSublim atualizado -->
-<https://formsubmit.co/agregagomes@gmail.com onsubmit="return enviarForm(this);">
+
+<form action="https://formsubmit.co/agregagomes@gmail.com" method="POST" onsubmit="return enviarForm(this);">
+
+<input type="hidden" name="_next" value="https://desmanchebr.online/obrigado.html">
+<input type="hidden" name="_captcha" value="false">
+
 <input type="text" name="nome" placeholder="Nome" required>
 <input type="tel" name="telefone" placeholder="Telefone" required>
 <input type="text" name="endereco" placeholder="Endereço" required>
 <input type="text" name="peca" placeholder="Peça" required>
+
 <button type="submit">Enviar</button>
+
 </form>
 </div>
 
