@@ -6,7 +6,7 @@
 
 <title>Auto Peças e Mecânica BR</title>
 
-<!-- Google tag -->
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17854148234"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -35,27 +35,15 @@ z-index:999;
 .logo{height:50px;}
 .legal{color:#25d366;font-size:14px;font-weight:bold;}
 
-.hero-slider{
+.hero{
 margin-top:80px;
-position:relative;
 height:55vh;
-overflow:hidden;
+background:url("banner.png") center/contain no-repeat;
+background-color:#000;
+filter:brightness(1.1);
 }
 
-.slide{
-position:absolute;
-width:100%;
-height:100%;
-background-size:cover;
-background-position:center;
-opacity:0;
-transition:opacity 1s ease-in-out;
-}
-
-.slide.active{
-opacity:1;
-}
-
+/* ⚡ CONTADOR */
 .counter{
 text-align:center;
 padding:50px 8%;
@@ -67,6 +55,7 @@ color:#ffae00;
 font-size:2.5rem;
 }
 
+/* SELO */
 .badge{
 display:inline-block;
 margin-top:15px;
@@ -76,6 +65,7 @@ border-radius:30px;
 font-size:14px;
 }
 
+/* BOTÃO CTA */
 .cta{
 display:block;
 margin:25px auto;
@@ -103,8 +93,15 @@ background:#111;
 padding:25px;
 border-radius:15px;
 border:1px solid #222;
+transition:0.3s;
 }
 
+.card:hover{
+transform:translateY(-6px);
+box-shadow:0 0 15px #ff0000;
+}
+
+/* DEPOIMENTOS */
 .testimonials{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -120,6 +117,11 @@ border-left:4px solid #ffae00;
 
 .stars{color:#ffae00;margin-bottom:10px;}
 .name{color:#888;margin-top:10px;font-size:14px;}
+
+/* CARROSSEL */
+.carousel{overflow:hidden;max-width:1000px;margin:auto;border-radius:20px;}
+.slides{display:flex;transition:transform .6s;}
+.slides img{width:100%;height:380px;object-fit:cover;flex-shrink:0;}
 
 .form-container{
 max-width:600px;
@@ -173,7 +175,8 @@ font-size:22px;
 }
 
 @media(max-width:768px){
-.hero-slider{height:38vh;}
+.hero{height:38vh;background-size:contain;}
+.slides img{height:240px;}
 .logo{height:40px;}
 }
 </style>
@@ -188,17 +191,13 @@ font-size:22px;
 </div>
 </div>
 
-<!-- BANNER ROTATIVO -->
-<div class="hero-slider">
-  <div class="slide active" style="background-image:url('patio.png')"></div>
-  <div class="slide" style="background-image:url('sucata2.png')"></div>
-  <div class="slide" style="background-image:url('sucata.png')"></div>
-</div>
+<div class="hero"></div>
 
+<!-- ⚡ CONTADOR -->
 <div class="counter">
 <h2 id="contador">+0 Peças</h2>
 <div class="badge">Garantia em todas as peças</div>
-<a href="https://wa.me/553798416044" class="cta">
+<a href="https://wa.me/553798416044" class="cta" id="btnWhatsapp">
 Solicitar peça no WhatsApp
 </a>
 </div>
@@ -214,47 +213,63 @@ Solicitar peça no WhatsApp
 </section>
 
 <section>
-<h2>Depoimentos</h2>
-<div class="testimonials">
-<div class="testimonial">
-<div class="stars">★★★★★</div>
-Peça perfeita e entrega rápida.
-<div class="name">Carlos Mendes</div>
-</div>
-<div class="testimonial">
-<div class="stars">★★★★★</div>
-Atendimento top, recomendo!
-<div class="name">Fernanda Souza</div>
-</div>
-<div class="testimonial">
-<div class="stars">★★★★★</div>
-Chegou tudo certinho, excelente qualidade.
-<div class="name">Marcos Oliveira</div>
-</div>
-<div class="testimonial">
-<div class="stars">★★★★★</div>
-Preço justo e atendimento rápido.
-<div class="name">Juliana Costa</div>
+<h2>Galeria</h2>
+<div class="carousel">
+<div class="slides" id="slides">
+<img src="patio.png" loading="lazy">
+<img src="sucata2.png" loading="lazy">
+<img src="arranque.png" loading="lazy">
+<img src="sucata1.png" loading="lazy">
 </div>
 </div>
 </section>
 
 <section>
+<h2>Depoimentos</h2>
+<div class="testimonials">
+
+<div class="testimonial">
+<div class="stars">★★★★★</div>
+Peça perfeita e entrega rápida.
+<div class="name">Carlos Mendes</div>
+</div>
+
+<div class="testimonial">
+<div class="stars">★★★★★</div>
+Atendimento top, recomendo!
+<div class="name">Fernanda Souza</div>
+</div>
+
+<!-- Novos depoimentos adicionados -->
+<div class="testimonial">
+<div class="stars">★★★★★</div>
+Muito rápido e seguro.
+<div class="name">João Pedro</div>
+</div>
+
+<div class="testimonial">
+<div class="stars">★★★★★</div>
+Ótimo atendimento e qualidade.
+<div class="name">Mariana Lima</div>
+</div>
+
+</div>
+</section>
+
+<section>
 <h2>Orçamento</h2>
+
 <div class="form-container">
-<form action="mailto:desmanchemecanicabr@gmail.com"
-method="post"
-enctype="text/plain"
-onsubmit="redirecionar()">
-
-<input type="text" name="Nome" placeholder="Nome" required>
-<input type="tel" name="Telefone" placeholder="Telefone" required>
-<input type="text" name="Endereço" placeholder="Endereço" required>
-<textarea name="Peça" placeholder="Qual peça você procura?" required></textarea>
-
-<button type="submit">Enviar Orçamento</button>
+<!-- Formulário FormSublim atualizado -->
+<form action="https://formsublim.com/form/id-do-formulario" method="POST" onsubmit="return enviarForm(this);">
+<input type="text" name="nome" placeholder="Nome" required>
+<input type="tel" name="telefone" placeholder="Telefone" required>
+<input type="text" name="endereco" placeholder="Endereço" required>
+<input type="text" name="peca" placeholder="Peça" required>
+<button type="submit">Enviar</button>
 </form>
 </div>
+
 </section>
 
 <footer>
@@ -266,11 +281,10 @@ onsubmit="redirecionar()">
 </p>
 </footer>
 
-<a href="https://wa.me/553798416044" class="whatsapp">📞</a>
+<a href="https://wa.me/553798416044" class="whatsapp" id="btnFixWhatsapp">📞</a>
 
 <script>
-
-/* contador */
+/* ⚡ contador animado */
 let alvo=10000;
 let atual=0;
 let el=document.getElementById("contador");
@@ -284,23 +298,27 @@ clearInterval(anim);
 }
 },40);
 
-/* banner rotativo */
-let slides = document.querySelectorAll(".slide");
-let index = 0;
+/* carrossel */
+let index=0;
+const slides=document.getElementById("slides");
+const total=slides.children.length;
 
-setInterval(() => {
-  slides[index].classList.remove("active");
-  index = (index + 1) % slides.length;
-  slides[index].classList.add("active");
-}, 4000);
+setInterval(()=>{
+index=(index+1)%total;
+slides.style.transform=`translateX(-${index*100}%)`;
+},3500);
 
-/* redirecionamento */
-function redirecionar(){
-setTimeout(()=>{
-window.location.href="obrigado.html";
-},500);
+/* Formulário FormSublim + redirecionamento Obrigado */
+function enviarForm(form){
+gtag('event', 'conversion', {'send_to': 'AW-17854148234/abcDEF123'});
+window.location.href = "obrigado.html";
+return true;
 }
 
+/* botão fixo do WhatsApp também dispara conversão */
+document.getElementById("btnFixWhatsapp").addEventListener("click", function(){
+gtag('event', 'conversion', {'send_to': 'AW-17854148234/abcDEF123'});
+});
 </script>
 
 </body>
