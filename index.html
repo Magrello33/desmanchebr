@@ -4,9 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Auto Peças e Mecânica BR</title>
+<title>Desmanche BR - Peças com Garantia</title>
 
-<!-- GOOGLE TAG NOVA -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17984119313"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -15,365 +14,290 @@ gtag('js', new Date());
 gtag('config', 'AW-17984119313');
 </script>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Orbitron',sans-serif;}
-body{background:#0b0b0f;color:white;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+body{background:#f5f5f5;color:#333;}
 
-.topbar{
-position:fixed;
-top:0;width:100%;
-background:black;
-padding:10px 5%;
-display:flex;
-align-items:center;
-gap:15px;
-z-index:999;
+.topo{
+position:fixed;top:0;width:100%;
+background:#fff;padding:10px 5%;
+display:flex;justify-content:space-between;
+align-items:center;border-bottom:1px solid #ddd;z-index:999;
 }
+.topo-left{display:flex;align-items:center;gap:8px;}
+.logo{height:38px;}
+.legal{color:#d90000;font-weight:bold;font-size:13px;}
 
-.logo{height:50px;}
-.legal{color:#25d366;font-size:14px;font-weight:bold;}
+.btn-topo{
+background:#25d366;color:#fff;
+padding:9px 12px;border-radius:6px;
+text-decoration:none;font-weight:bold;
+animation:pulse 1.5s infinite;
+}
 
 .hero{
-margin-top:80px;
-height:55vh;
-background:url("banner.png") center/contain no-repeat;
-background-color:#000;
+margin-top:65px;height:40vh;
+background:url("banner.png") center/cover no-repeat;
+display:flex;align-items:center;justify-content:center;
+text-align:center;
 }
+.hero h1{
+background:rgba(0,0,0,0.6);
+color:#fff;padding:12px;border-radius:8px;
+font-size:20px;
+}
+
+.selo{text-align:center;margin:15px 0;}
+.selo img{height:70px;}
+.selo p{font-size:14px;color:#555;font-weight:bold;margin-top:10px;}
 
 .urgencia{
-background:#ff0000;
-text-align:center;
-padding:10px;
-font-size:14px;
-font-weight:bold;
-animation:pulse 1s infinite;
+background:#d90000;color:#fff;text-align:center;padding:8px;font-size:14px;
 }
 
-@keyframes pulse{
-0%{opacity:1;}
-50%{opacity:0.5;}
-100%{opacity:1;}
+.counter{text-align:center;padding:30px;background:#fff;}
+.counter h2{color:#d90000;font-size:26px;}
+
+.carousel{
+max-width:900px;margin:30px auto;
+overflow:hidden;border-radius:10px;
+}
+.slides{display:flex;transition:.5s;}
+.slides img{
+width:100%;
+height:280px;
+object-fit:cover;
+flex-shrink:0;
 }
 
-.counter{
-text-align:center;
-padding:50px 8%;
-background:#111;
-}
-
-.counter h2{color:#ffae00;font-size:2.5rem;}
-
-.badge{
-display:inline-block;
-margin-top:15px;
-padding:10px 18px;
-background:#25d366;
-border-radius:30px;
-font-size:14px;
-}
-
-.cta{
-display:block;
-margin:25px auto;
-max-width:340px;
-text-align:center;
-background:#25d366;
-padding:16px;
-border-radius:10px;
-color:white;
-text-decoration:none;
-font-weight:bold;
-font-size:16px;
-animation:piscar 1s infinite;
-box-shadow:0 0 15px #25d366;
-}
-
-.cta-fixo{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25d366;
-color:#fff;
-padding:14px 18px;
-border-radius:10px;
-font-weight:bold;
-font-size:14px;
-text-decoration:none;
-z-index:9999;
-box-shadow:0 0 12px #25d366;
-animation:piscar2 1s infinite;
-}
-
-@keyframes piscar{
-0%{transform:scale(1);}
-50%{transform:scale(1.06);}
-100%{transform:scale(1);}
-}
-
-@keyframes piscar2{
-0%{opacity:1;}
-50%{opacity:0.7;}
-100%{opacity:1;}
-}
-
-section{padding:70px 8%;}
-h2{text-align:center;margin-bottom:40px;color:#ffae00;}
+section{padding:40px 5%;}
+h2{text-align:center;margin-bottom:20px;color:#d90000;}
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px;
 }
 
 .card{
-background:#111;
-padding:25px;
-border-radius:15px;
-border:1px solid #222;
-transition:.3s;
+background:#fff;padding:18px;
+border-radius:8px;border:1px solid #ddd;
+font-size:14px;
 }
 
-.card:hover{
-transform:translateY(-5px);
-box-shadow:0 0 10px red;
+.parceiros{
+max-width:700px;margin:auto;
 }
-
-.testimonials{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
+.parceiros img{
+width:100%;
+height:90px;
+object-fit:contain;
+background:#fff;
+padding:10px;
+border-radius:8px;
+border:1px solid #ddd;
 }
 
 .testimonial{
-background:#111;
-padding:25px;
-border-radius:15px;
-border-left:4px solid #ffae00;
+background:#fff;padding:15px;
+border-radius:8px;border-left:4px solid #d90000;
+font-size:14px;
 }
+.stars{color:#ffae00;}
 
-.stars{color:#ffae00;margin-bottom:10px;}
-.name{color:#888;margin-top:10px;font-size:14px;}
-
-.carousel{overflow:hidden;max-width:1000px;margin:auto;border-radius:20px;}
-.slides{display:flex;transition:transform .6s;}
-.slides img{width:100%;height:380px;object-fit:cover;}
-
-.form-container{
-max-width:600px;
-margin:auto;
-background:#111;
-padding:30px;
-border-radius:15px;
+.form{
+background:#fff;padding:20px;
+border-radius:10px;max-width:450px;margin:auto;
 }
-
-input{
-width:100%;
-padding:12px;
-margin:10px 0;
-border:none;
-border-radius:8px;
-}
-
+input{width:100%;padding:10px;margin:8px 0;border:1px solid #ccc;border-radius:6px;}
 button{
-background:#ff0000;
-color:white;
-padding:12px;
-border:none;
-width:100%;
-border-radius:8px;
-cursor:pointer;
+background:#d90000;color:#fff;
+padding:12px;border:none;width:100%;
+border-radius:6px;font-weight:bold;
 }
 
-iframe{
-width:100%;
-height:320px;
-border-radius:15px;
-border:none;
+iframe{width:100%;height:260px;border-radius:10px;border:none;}
+
+.fixo{
+position:fixed;bottom:18px;right:18px;
+background:#25d366;color:#fff;
+padding:14px;border-radius:10px;
+text-decoration:none;font-weight:bold;
+box-shadow:0 0 10px #25d366;
+animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+0%{transform:scale(1);}
+50%{transform:scale(1.05);}
+100%{transform:scale(1);}
 }
 
 footer{
-background:black;
-text-align:center;
-padding:30px;
-color:#888;
-}
-
-footer a{
-color:#ffae00;
-text-decoration:none;
-margin:0 8px;
-}
-
-@media(max-width:768px){
-.hero{height:38vh;background-size:contain;}
-.slides img{height:240px;}
-.logo{height:40px;}
+background:#111;color:#fff;padding:40px 20px;margin-top:40px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="topbar">
+<div class="topo">
+<div class="topo-left">
 <img src="logo.png" class="logo">
 <span class="legal">✔ Desmanche Legalizado</span>
 </div>
+<a href="https://wa.me/553798416044" class="btn-topo">WhatsApp</a>
+</div>
 
-<div class="hero"></div>
+<div class="hero">
+<h1>Peças usadas com garantia e envio para todo Brasil</h1>
+</div>
+
+<div class="selo">
+<img src="selo.png">
+<p>
+✔ Desmanche Legalizado e Autorizado<br>
+✔ Nota fiscal e procedência garantida<br>
+✔ Veículos de leilões credenciados
+</p>
+</div>
 
 <div class="urgencia">
-Peças usadas com garantia você só encontra com a gente.
+🔥 Poucas peças disponíveis hoje - consulte agora
 </div>
 
 <div class="counter">
-<h2 id="contador">+0 Peças</h2>
-<div class="badge">Garantia em todas as peças</div>
-
-<a href="https://wa.me/553798416044" class="cta" id="btnWhatsapp">
-🔥 FALAR AGORA NO WHATSAPP
-</a>
+<h2 id="contador">+0 clientes atendidos</h2>
+<p>Atendimento rápido e peças com procedência</p>
 </div>
+
+<div class="carousel">
+<div class="slides" id="slides">
+<img src="img1.png">
+<img src="img2.png">
+<img src="img3.png">
+<img src="img4.png">
+<img src="estoque.png">
+<img src="patio.png">
+</div>
+</div>
+
+<section>
+<h2>Empresas e Leilões Parceiros</h2>
+<p style="text-align:center;margin-bottom:15px;color:#555;">
+🔒 Trabalhamos com leilões homologados e fornecedores confiáveis
+</p>
+<div class="grid parceiros">
+<img src="parceiro1.png">
+<img src="parceiro2.png">
+<img src="parceiro3.png">
+</div>
+</section>
 
 <section>
 <h2>Nossos Serviços</h2>
 <div class="grid">
-<div class="card">Venda de Peças com garantia</div>
-<div class="card">Desmanche Legalizado</div>
-<div class="card">Atendimento Rápido</div>
-<div class="card">Envio Nacional</div>
+<div class="card">✔ Venda de peças usadas com garantia e procedência</div>
+<div class="card">✔ Desmanche legalizado com documentação regular</div>
+<div class="card">✔ Envio rápido para todo o Brasil</div>
+<div class="card">✔ Atendimento imediato via WhatsApp</div>
+<div class="card">✔ Peças revisadas e testadas antes do envio</div>
+<div class="card">✔ Suporte pós-venda para garantir sua satisfação</div>
 </div>
 </section>
 
 <section>
-<h2>Galeria</h2>
-<div class="carousel">
-<div class="slides" id="slides">
-<img src="brsucatas.png">
-<img src="branco.png">
-<img src="patio.png">
-<img src="mecanica.png">
-</div>
-</div>
-</section>
-
-<section>
-<h2>Depoimentos</h2>
-<div class="testimonials">
-<div class="testimonial"><div class="stars">★★★★★</div>Peça perfeita e entrega rápida.<div class="name">Carlos Mendes</div></div>
-<div class="testimonial"><div class="stars">★★★★★</div>Atendimento top, recomendo!<div class="name">Fernanda Souza</div></div>
-<div class="testimonial"><div class="stars">★★★★★</div>Muito rápido e seguro.<div class="name">João Pedro</div></div>
-<div class="testimonial"><div class="stars">★★★★★</div>Ótimo atendimento e qualidade.<div class="name">Mariana Lima</div></div>
-<div class="testimonial"><div class="stars">★★★★★</div>Comprei motor e chegou perfeito!<div class="name">Rafael Costa</div></div>
+<h2>Avaliações</h2>
+<div class="grid">
+<div class="testimonial"><div class="stars">★★★★★</div>Peça perfeita - Carlos</div>
+<div class="testimonial"><div class="stars">★★★★★</div>Entrega rápida - Fernanda</div>
+<div class="testimonial"><div class="stars">★★★★★</div>Recomendo - João</div>
+<div class="testimonial"><div class="stars">★★★★★</div>Ótimo atendimento - Mariana</div>
+<div class="testimonial"><div class="stars">★★★★★</div>Empresa confiável - Rafael</div>
 </div>
 </section>
 
 <section>
-<h2>Nossa Localização</h2>
-<iframe src="https://maps.google.com/maps?q=Rua%20Joao%20Pedro%20Moreira%20de%20Carvalho%202296%20Sinop&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
+<h2>Localização</h2>
+<iframe src="https://maps.google.com/maps?q=Rua+João+Pedro+Moreira+de+Carvalho,+2296,+Sinop+MT&output=embed"></iframe>
 </section>
 
 <section>
-<h2>Orçamento</h2>
-<div class="form-container">
-<form action="https://formsubmit.co/desmanchemecanicabr@gmail.com" method="POST" onsubmit="return enviarForm();">
+<h2>Solicitar Peça</h2>
+<div class="form">
+<form action="https://formsubmit.co/desmanchemecanicabr@gmail.com" method="POST">
 <input type="hidden" name="_next" value="https://desmanchebr.online/obrigado.html">
 <input type="hidden" name="_captcha" value="false">
 <input type="text" name="nome" placeholder="Nome" required>
 <input type="tel" name="telefone" placeholder="Telefone" required>
-<input type="text" name="endereco" placeholder="Endereço" required>
-<input type="text" name="peca" placeholder="Peça" required>
-<button type="submit">Enviar</button>
+<input type="text" name="peca" placeholder="Qual peça você precisa?" required>
+<button type="submit">Enviar Pedido</button>
 </form>
 </div>
 </section>
 
-<footer style="background:#000;padding:50px 8%;color:#ccc;">
-
-<div style="max-width:1200px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;text-align:left;">
-
-<div>
-<h3 style="color:#ffae00;margin-bottom:15px;">Auto Peças e Mecânica BR</h3>
-<p>Peças usadas com garantia e procedência.</p>
-<p>Desmanche legalizado em Sinop - MT.</p>
-</div>
+<footer>
+<div style="max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;">
 
 <div>
-<h4 style="color:#ffae00;margin-bottom:15px;">Endereço</h4>
-<p>Rua João Pedro Moreira de Carvalho, 2296</p>
-<p>Setor Industrial</p>
-<p>Sinop - MT</p>
-</div>
-
-<div>
-<h4 style="color:#ffae00;margin-bottom:15px;">Atendimento</h4>
-<p>Seg a Sex: 08h às 18h</p>
-<p>Sábado: 08h às 12h</p>
-<p>WhatsApp: (37) 98416-4044</p>
-</div>
-
-<div>
-<h4 style="color:#ffae00;margin-bottom:15px;">Institucional</h4>
-<p><a href="politica.html" style="color:#ccc;text-decoration:none;">Política de Privacidade</a></p>
-<p><a href="sobre.html" style="color:#ccc;text-decoration:none;">Sobre Nós</a></p>
-<p><a href="cnpj.html" style="color:#ccc;text-decoration:none;">CNPJ</a></p>
-</div>
-
-</div>
-
-<hr style="margin:40px 0;border:0;border-top:1px solid #222;">
-
-<p style="text-align:center;color:#777;font-size:14px;">
-© 2026 Auto Peças e Mecânica BR - Todos os direitos reservados.
+<h3 style="margin-bottom:10px;">🚗 DesmancheBR</h3>
+<p style="color:#bbb;font-size:14px;line-height:1.5;">
+Peças automotivas usadas com procedência, garantia e envio para todo o Brasil.
 </p>
+<p style="margin-top:10px;font-size:13px;color:#888;">
+CNPJ: 01.349.268/0001-04
+</p>
+</div>
 
+<div>
+<h3 style="margin-bottom:10px;">Links</h3>
+<p style="color:#bbb;font-size:14px;line-height:2;">
+<a href="sobre.html" style="color:#bbb;text-decoration:none;">Sobre Nós</a><br>
+<a href="politica.html" style="color:#bbb;text-decoration:none;">Política de Privacidade</a><br>
+<a href="cnpj.html" style="color:#bbb;text-decoration:none;">Dados da Empresa</a>
+</p>
+</div>
+
+<div>
+<h3 style="margin-bottom:10px;">Contato</h3>
+<p style="color:#bbb;font-size:14px;">
+WhatsApp: (37) 9841-6044<br>
+desmanchemecanicabr@gmail.com
+</p>
+<a href="https://wa.me/553798416044" target="_blank"
+style="display:inline-block;margin-top:10px;background:#25D366;color:#fff;padding:10px 16px;border-radius:6px;text-decoration:none;font-weight:bold;">
+Falar no WhatsApp
+</a>
+</div>
+
+</div>
+
+<div style="text-align:center;margin-top:20px;font-size:13px;color:#777;">
+© 2026 DesmancheBR - Todos os direitos reservados
+</div>
 </footer>
-<a href="https://wa.me/553798416044" class="cta-fixo" id="btnFixo">
+
+<a href="https://wa.me/553798416044" class="fixo">
 🚀 PEDIR PEÇA AGORA
 </a>
 
 <script>
-let alvo=10000;
-let atual=0;
-let el=document.getElementById("contador");
-
-let anim=setInterval(()=>{
-atual+=250;
-el.textContent=`+${atual.toLocaleString()} Peças`;
-if(atual>=alvo){
-el.textContent="+10.000 Peças";
-clearInterval(anim);
-}
-},40);
-
 let index=0;
 const slides=document.getElementById("slides");
 const total=slides.children.length;
-
 setInterval(()=>{
 index=(index+1)%total;
 slides.style.transform=`translateX(-${index*100}%)`;
-},3500);
+},3000);
 
-function enviarForm(){
-gtag('event','conversion',{
-'send_to':'AW-17984119313/2pfdCOb-8YAcEJHEv_9C'
-});
-return true;
-}
-
-document.getElementById("btnWhatsapp").addEventListener("click",function(){
-gtag('event','conversion',{
-'send_to':'AW-17984119313/2pfdCOb-8YAcEJHEv_9C'
-});
-});
-
-document.getElementById("btnFixo").addEventListener("click",function(){
-gtag('event','conversion',{
-'send_to':'AW-17984119313/2pfdCOb-8YAcEJHEv_9C'
-});
-});
+let count=0;
+let el=document.getElementById("contador");
+let alvo=5000;
+let anim=setInterval(()=>{
+count+=50;
+el.textContent=`+${count} clientes atendidos`;
+if(count>=alvo){el.textContent="+5.000 clientes atendidos"; clearInterval(anim);}
+},40);
 </script>
 
 </body>
