@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Desmanche BR - Peças com Garantia</title>
+
+<!-- GOOGLE TAG -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17984119313"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'AW-17984119313');
+</script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial, sans-serif;}
+body{background:#f5f5f5;color:#333;}
+
+.topo{
+position:fixed;
+top:0;
+width:100%;
+background:#fff;
+padding:10px 5%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid #ddd;
+z-index:999;
+}
+
+.topo-left{
+display:flex;
+align-items:center;
+gap:8px;
+}
+
+.logo{height:38px;}
+
+.legal{
+color:#d90000;
+font-weight:bold;
+font-size:13px;
+}
+
+.btn-topo{
+background:#25d366;
+color:#fff;
+padding:9px 12px;
+border-radius:6px;
+text-decoration:none;
+font-weight:bold;
+animation:pulse 1.5s infinite;
+}
+
+.hero{
+margin-top:65px;
+height:40vh;
+background:url("banner.png") center/cover no-repeat;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+}
+
+.hero h1{
+background:rgba(0,0,0,0.6);
+color:#fff;
+padding:12px 18px;
+border-radius:8px;
+font-size:20px;
+}
+
+.selo{
+text-align:center;
+margin:15px 0;
+}
+.selo img{height:70px;}
+
+.urgencia{
+background:#d90000;
+color:#fff;
+text-align:center;
+padding:8px;
+font-size:14px;
+}
+
+.counter{
+text-align:center;
+padding:30px 5%;
+background:#fff;
+}
+.counter h2{
+color:#d90000;
+font-size:26px;
+}
+
+.carousel{
+max-width:800px;
+margin:30px auto;
+overflow:hidden;
+border-radius:10px;
+}
+.slides{
+display:flex;
+transition:.5s;
+}
+.slides img{
+width:100%;
+height:260px;
+object-fit:cover;
+}
+
+/* PARCEIROS PADRONIZADO */
+.parceiros img{
+width:100%;
+height:80px;
+object-fit:contain;
+background:#fff;
+padding:10px;
+border-radius:8px;
+border:1px solid #ddd;
+}
+
+section{padding:40px 5%;}
+h2{
+text-align:center;
+margin-bottom:25px;
+color:#d90000;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px;
+}
+
+.card{
+background:#fff;
+padding:20px;
+border-radius:10px;
+border:1px solid #ddd;
+font-size:14px;
+text-align:center;
+}
+
+/* SERVIÇOS MAIS FORTE */
+.card strong{
+display:block;
+margin-bottom:5px;
+color:#d90000;
+font-size:15px;
+}
+
+.testimonial{
+background:#fff;
+padding:15px;
+border-radius:8px;
+border-left:4px solid #d90000;
+font-size:14px;
+}
+.stars{color:#ffae00;}
+
+.form{
+background:#fff;
+padding:20px;
+border-radius:10px;
+max-width:450px;
+margin:auto;
+}
+input{
+width:100%;
+padding:10px;
+margin:8px 0;
+border:1px solid #ccc;
+border-radius:6px;
+}
+button{
+background:#d90000;
+color:#fff;
+padding:12px;
+border:none;
+width:100%;
+border-radius:6px;
+font-weight:bold;
+}
+
+iframe{
+width:100%;
+height:260px;
+border-radius:10px;
+border:none;
+}
+
+.fixo{
+position:fixed;
+bottom:18px;
+right:18px;
+background:#25d366;
+color:#fff;
+padding:14px;
+border-radius:10px;
+text-decoration:none;
+font-weight:bold;
+box-shadow:0 0 10px #25d366;
+animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+0%{transform:scale(1);}
+50%{transform:scale(1.05);}
+100%{transform:scale(1);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="topo">
+<div class="topo-left">
+<img src="logo.png" class="logo">
+<span class="legal">✔ Desmanche Legalizado</span>
+</div>
+<a href="https://wa.me/553798416044" class="btn-topo">WhatsApp</a>
+</div>
+
+<div class="hero">
+<h1>Peças usadas com garantia e envio para todo Brasil</h1>
+</div>
+
+<div class="selo">
+<img src="selo.png">
+<p style="margin-top:10px;font-size:14px;color:#555;font-weight:bold;">
+✔ Desmanche Legalizado e Autorizado<br>
+✔ Peças com Procedência e Nota Fiscal<br>
+✔ Veículos provenientes de Leilões Credenciados
+</p>
+</div>
+
+<div class="urgencia">
+🔥 Poucas peças disponíveis hoje - consulte agora
+</div>
+
+<div class="counter">
+<h2 id="contador">+0 clientes atendidos</h2>
+<p>Atendimento rápido e peças com procedência</p>
+</div>
+
+<div class="carousel">
+<div class="slides" id="slides">
+<img src="img1.png">
+<img src="img2.png">
+<img src="img3.png">
+<img src="img4.png">
+<img src="estoque.png">
+<img src="patio.png">
+</div>
+</div>
+
+<!-- PARCEIROS PRIMEIRO -->
+<section>
+<h2>Empresas e Leilões Parceiros</h2>
+
+<p style="text-align:center; margin-bottom:20px; color:#555; font-size:14px;">
+Trabalhamos com veículos provenientes de leilões autorizados e empresas credenciadas
+</p>
+
+<div class="grid parceiros" style="max-width:600px;margin:auto;">
+<img src="parceiro1.png">
+<img src="parceiro2.png">
+<img src="parceiro3.png">
+</div>
+</section>
+
+<!-- SERVIÇOS MELHORADO -->
+<section>
+<h2>Nossos Serviços</h2>
+<div class="grid">
+
+<div class="card">
+<strong>Peças com Garantia</strong>
+Produtos revisados e testados antes do envio
+</div>
+
+<div class="card">
+<strong>Procedência Legal</strong>
+Veículos de leilões autorizados com documentação
+</div>
+
+<div class="card">
+<strong>Envio Rápido</strong>
+Entrega para todo Brasil com agilidade
+</div>
+
+<div class="card">
+<strong>Atendimento Imediato</strong>
+Resposta rápida direto no WhatsApp
+</div>
+
+</div>
+</section>
+
+<section>
+<h2>Avaliações</h2>
+<div class="grid">
+<div class="testimonial"><div class="stars">★★★★★</div>Peça perfeita - Carlos</div>
+<div class="testimonial"><div class="stars">★★★★★</div>Entrega rápida - Fernanda</div>
+<div class="testimonial"><div class="stars">★★★★★</div>Recomendo - João</div>
+<div class="testimonial"><div class="stars">★★★★★</div>Ótimo atendimento - Mariana</div>
+<div class="testimonial"><div class="stars">★★★★★</div>Empresa confiável - Rafael</div>
+</div>
+</section>
+
+<section>
+<h2>Localização</h2>
+<iframe src="https://maps.google.com/maps?q=Sinop&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+</section>
+
+<section>
+<h2>Solicitar Peça</h2>
+<div class="form">
+<form action="https://formsubmit.co/desmanchemecanicabr@gmail.com" method="POST">
+<input type="hidden" name="_next" value="https://desmanchebr.online/obrigado.html">
+<input type="hidden" name="_captcha" value="false">
+<input type="text" name="nome" placeholder="Nome" required>
+<input type="tel" name="telefone" placeholder="Telefone" required>
+<input type="text" name="peca" placeholder="Qual peça você precisa?" required>
+<button type="submit">Enviar Pedido</button>
+</form>
+</div>
+</section>
+
+<!-- RODAPÉ FINAL (SEM MAPA) -->
+<footer style="background:#1a1a1a;color:#fff;padding:40px 20px;margin-top:40px;">
+    
+    <div style="max-width:1200px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;">
+        
+        <div>
+            <h3>Auto Peças e Mecânica BR</h3>
+            <p style="color:#ccc;font-size:14px;">
+                Desmanche legalizado com peças automotivas de procedência garantida e nota fiscal.
+            </p>
+        </div>
+
+        <div>
+            <h3>Links</h3>
+            <ul style="list-style:none;padding:0;">
+                <li><a href="sobre.html" style="color:#ccc;">Sobre Nós</a></li>
+                <li><a href="politica.html" style="color:#ccc;">Política de Privacidade</a></li>
+                <li><a href="cnpj.html" style="color:#ccc;">CNPJ</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>Contato</h3>
+            <p style="color:#ccc;font-size:14px;">
+                📞 (37) 9841-6044<br>
+                ✉ desmanchemecanicabr@gmail.com<br>
+                📍 Sinop - MT
+            </p>
+        </div>
+
+    </div>
+
+    <div style="text-align:center;margin-top:20px;font-size:13px;color:#aaa;">
+        © 2026 Auto Peças e Mecânica BR - CNPJ: 01.349.268/0001-04
+    </div>
+
+</footer>
+
+<a href="https://wa.me/553798416044" class="fixo">
+🚀 PEDIR PEÇA AGORA
+</a>
+
+<script>
+let index=0;
+const slides=document.getElementById("slides");
+const total=slides.children.length;
+
+setInterval(()=>{
+index=(index+1)%total;
+slides.style.transform=`translateX(-${index*100}%)`;
+},3000);
+
+let count=0;
+let alvo=5000;
+let el=document.getElementById("contador");
+
+let anim=setInterval(()=>{
+count+=50;
+el.textContent=`+${count} clientes atendidos`;
+if(count>=alvo){
+el.textContent="+5.000 clientes atendidos";
+clearInterval(anim);
+}
+},40);
+</script>
+
+</body>
+</html>
